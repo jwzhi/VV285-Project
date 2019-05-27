@@ -1,0 +1,546 @@
+\documentclass{article}
+\usepackage{indentfirst}
+\usepackage{color}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{amsmath}
+\usepackage{mathrsfs}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{gauss}
+\usepackage{dsfont}
+\usepackage{amsthm}
+\usepackage{graphicx}
+\usepackage{multirow}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{enumerate}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{ulem}
+\usepackage{graphicx}
+\usepackage{subfigure}
+\usepackage{geometry}
+\usepackage{multirow}
+\usepackage{multicol}
+\usepackage{indentfirst}
+\usepackage{xcolor}
+\usepackage{verbatim}
+\usepackage{hyperref}
+%\usepackage{ctex}
+\usepackage{gauss}
+\usepackage[version=4]{mhchem}
+
+
+\title{\textbf{Vv285 Honors Mathematics III\\\vspace{0.7em}}\Huge{\textbf{Term Project\vspace{0.7em}}}\\ \LARGE\textbf{A Perfect Pendulum\\\vspace{2em}}}
+
+\author{\LARGE{Group 9}\\\\\\\\\vspace{0.5em} \\\vspace{0.5em}\Large{Zhu Jing~~~~~517370910135}\\\vspace{0.5em}\Large{Fan Zekai~~~~ 517021911109}\\\vspace{0.5em}\Large{Wang Yisen~ 517370910202}\\\vspace{0.5em}\Large{Shi Li  ~~~~~~~ ~517370910032}\\\vspace{0.5em}\Large{Gan Bicheng   517370910049}\\\\\vspace{2em}}
+						% Activate to display a given date or no date
+
+
+\begin{document}
+\begin{figure}
+
+
+\end{figure}
+\maketitle
+\thispagestyle{empty}
+
+\newpage
+\section*{Abstract}
+ \par In this project, we discovered and solved different types of  motions of pendulum. From the the property of a mathematical pendulum and the equation of the pendulum, we found out the approximate form for the period of the oscillation. The initial condition limited this equation so that we turned to a more realistic one --- the mathematical tautochrone problem. We studied the property of the curve and give the parametric equation of the cycloid. Next, we constructed the tautochronous pendulum. At last, we use Algodoo to simulate both simple pendulum and Huygens’s tautochrounous pendulum.
+\thispagestyle{empty}
+
+\newpage
+\tableofcontents
+
+
+\newpage
+\section{Introduction}
+	\par A pendulum is a weight suspended from a pivot so that it can swing freely.${[1]}$ Galileo Galilei firstly invented the scientific pendulum around 1602, later on the regular motion of pendulums was used for timekeeping. It was so important that it was used as the world's most accurate timekeeping technology until the 1930s.${[2]}$(See figure 1) There are so many interesting properties in this model that many scientists including physicists and mathematicians give complicated solutions for it.
+ \begin{figure}[H]
+ \small
+ \centering
+ \includegraphics[scale=0.35]{ss2.png}
+ \caption{A simple mathematical pendulum[4]}
+ \end{figure}
+   \par The period of a swinging simple pendulum depends on three factors: the length, the gravity acceleration, and on the maximum angle that the pendulum swings away from vertical, called the amplitude.${[3]}$ Only when the amplitude is small can we approximate this period as the theoretical pendulum. The larger the amplitude is, the longer the period is. However, this kind of time clock leads to a great deviation in reality and later on a more accurate model was introduced.
+  \par In 1656, the Dutch scientist Christiaan Huygens built the first pendulum clock. This was a great improvement over existing mechanical clocks; their best accuracy was improved from around 15 minutes deviation a day to around 15 seconds a day. The pendulum clock invented by Christian Huygens in 1658 became the world's standard timekeeper, used in homes and offices for 270 years, and achieved accuracy of about one second per year before it was superseded as a time standard by the quartz clock in the 1930s. ${[4]}$
+   \begin{figure}[H]
+ \small
+ \centering
+ \includegraphics[scale=0.5]{ss4.jpg}
+ \caption{Christiaan Huygens in youth[5]}
+ \end{figure}
+ \par Why this pendulum clock can be so accurate? It was suprised that he discovered a curve for which the time of an oscillation is independent of the swing amplitude.
+\par  Such a curve is described either as isochronous or as tautochronous, both terms referring to the ``same-time'' property in Greek at which the bob reaches its lowest point, regardless of the amplitude.
+\begin{figure}[H]
+ \centering
+ \includegraphics[scale=0.35]{pro_3}
+ \caption{A tautochronous pendulum[6]}
+ \end{figure}
+  		 Interestingly, Huygens showed that the shape of the tautochrone was given by a curve that had been already created and used in other fields, namely a cycloid.
+  	  \begin{figure}[H]
+ \small
+ \centering
+ \includegraphics[scale=0.35]{ss1.png}
+ \caption{A cycloid curve}
+ \end{figure}
+ \par The cycloid has many interesting properties. Cycloid, also called the Brachistochrone Curve, shows the fastest path of a particle slipping down two points in a vertical direction.
+ \par Later, Huygens decided to build this clock himself. 
+  	  \begin{figure}[H]
+ \small
+ \centering
+ \includegraphics[scale=0.14]{ss3.png}
+ \caption{A pendulum clock[2]}
+ \end{figure}
+\section{Background}
+\par In this project, we are trying to trace the development of the pendulum and giving a solution and an explanation in a rigorous way. 
+\par  The first task is to discover the motion of the ideal pendulum. The period T of a simple pendulum, the time taken for a complete cycle, is:
+\begin{equation*}
+T\approx2\pi\sqrt{\frac{l}{g}}
+\end{equation*}
+\par when the initial condition $\theta_0$ is much smaller than 1$^o$. l is the string length and g is the gravity acceleration. Further calculation will be displayed below.
+\par The second task is to study the path of a cycloid, which is the same as the pendulum clock. The period of a cycloid is:
+\begin{equation*}
+T=\pi\sqrt{\frac{r}{g}}
+\end{equation*}
+\par where r is the radius of the circle which makes the cycloid. The construction of the curve will be displayed later. 
+
+
+\section{Calculation and Analysis}
+\subsection{Mathematical Pendulum and Physical Pendulum}
+\par A particle of mass m connected by a rigid, weightless rod (or a thread) of length l to a base by means of a pin joint that can oscillate and rotate in a plane is called the mathematical pendulum. 
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.4\textwidth]{math_1}
+  \caption{mathematical pendulum model[7]}
+\end{figure}
+Definition of the physical pendulum is the generalization of the simple pendulum. That is to say, the physical pendulum consists of any rigid body that oscillates about a pivot point. A diagrammatic sketch is shown below 
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.4\textwidth]{math_2}
+  \caption{diagrammatic sketch for the physical pendulum[8]}
+\end{figure}
+The mathematical pendulum is a simplified model.
+ 	\par The difference between mathematical pendulum and physical pendulum is that in the mathematical pendulum, it assumes that the mass of the thread or rod is negligible or the object attached to be rod can be regarded as a particle. The physical pendulum, however, acknowledges the mass of the thread or rod.
+	\par In reality, since every rod or thread has mass and thus the physical pendulum fits reality more. 
+The mathematical pendulum is just the idealized case for pendulum.
+	\par If the mass of the rod or thread is relatively small, we can regard the pendulum as mathematical pendulum. 
+\subsection{Energy of the Mathematical Pendulum}
+\par We can derive the energy for a mathematical pendulum using the energy conservation law. A mathematical pendulum is shown below. We denote $L$  as $l $.
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.5\textwidth]{math_3}
+  \caption{energy conservation for the mathematical pendulum[9]}
+\end{figure}
+ Take the lowest point of the pendulum as the point where the gravitational energy equals 0. Then suppose that the pendulum swings to an angle $\theta$ from the vertical direction. Then the gravitational energy equals to 
+\begin{equation*}
+E_p = mgh = mgl(1- \cos\theta)
+\end{equation*}
+	\par since $ v= \omega R$, we know that 
+\begin{equation*}
+v = \omega R = l \dot{\theta}
+\end{equation*}
+	\par Thus the kinetic energy at the point is 
+\begin{equation*}
+E_k = \frac{1}{2}mv^2 = \frac{1}{2} m l^2 \dot{\theta}^2
+\end{equation*}
+	\par Thus the energy of the mathematical pendulum is given by
+\begin{equation}
+E (\theta, \dot{\theta}) =  \frac{1}{2} m l^2 \dot{\theta}^2 + mgl(1- \cos\theta)
+\end{equation}
+\subsection{The Pendulum Equation}
+\par  Since the total energy of the pendulum system is conserved, that is to say, $E (\theta, \dot{\theta}) = const $. Differentiate equation(1) from both side and apply the product rule, we get 
+\begin{equation*}
+ \begin{aligned}
+0  & =  \frac{1}{2} m l^2 ( \ddot{\theta} \dot{\theta} +\dot{\theta} \ddot{\theta}) + mgl (0 +\sin(\theta) \dot{\theta} )\\
+    & =  m l^2 ( \ddot{\theta} \dot{\theta}) + mgl\sin(\theta) \dot{\theta}
+  \end{aligned}
+\end{equation*}
+	\par When $\dot{\theta} \neq 0$ we get
+\begin{equation*}
+\ddot{\theta}+\frac{g}{l}\sin(\theta) = 0
+\end{equation*}
+\par Since $\dot{\theta} = 0$ if and only if the pendulum is at its lowest point, that is $\theta = 0$ and it also satisfies the equation $ \ddot{\theta}+\frac{g}{l}\sin(\theta) = 0 $ Thus the equation is valid for any $\theta$.
+	\par As $\theta$ is related to $t$, rewrite equation 2 and we get 
+\begin{equation*}
+\frac{d^2 \theta(t)}{dt^2} + \frac{g}{l}\sin(\theta (t)) =0
+\end{equation*}
+\subsection{Period of the Mathematical Pendulum}
+\par Denote $ \theta (0) = \theta_0$ at $t=0$ and let the pendulum go.
+\par Use the conservation of total energy we get for any time t
+\begin{equation*}
+E_{k_0} + E_{p_0} = E_k +E_p
+\end{equation*}
+	\par When the pendulum is first released, it does not have initial speed and thus its kinetic energy at $t=0$ is $0$. We can get 
+\begin{equation*}
+ \begin{aligned}
+E_{k_0} + E_{p_0} & = E_k +E_p \\
+0+mgl(1-\cos(\theta_0)) & = \frac{1}{2}ml^2 \dot{\theta}^2 +mgl(1-\cos\theta)\\
+mgl -mgl \cos(\theta_0) & =  \frac{1}{2}ml^2 \dot{\theta}^2  +mgl -mgl\cos\theta \\
+ \dot{\theta}^2 &= \frac{2g}{l}(\cos\theta - \cos \theta_0) \\
+ | \dot{\theta}| &= \sqrt{ \frac{2g}{l}(\cos\theta - \cos \theta_0) }
+ \end{aligned}
+\end{equation*}
+	\par For a single period, the map $t \rightarrow \theta $ is bijective and invertible, apply the inverse function theorem  and Leibniz notation, we get 
+\begin{equation*}
+ \begin{aligned}
+ \frac{d \theta}{dt} & = \sqrt{ \frac{2g}{l}(\cos\theta - \cos \theta_0) } \\
+ d \theta & = \sqrt{ \frac{2g}{l}(\cos\theta - \cos \theta_0) } dt \\
+ dt &= \frac{d \theta}{\sqrt{ \frac{2g}{l}(\cos\theta - \cos \theta_0) }} \\
+ dt & = \sqrt{\frac{l}{2g}} \frac{d \theta} {\sqrt{\cos\theta - \cos \theta_0}} \\
+ \end{aligned}
+\end{equation*}
+\par Since the pendulum equation is $ \frac{d^2 \theta(t)}{dt^2} + \frac{g}{l}\sin(\theta (t)) =0 $, the pendulum can actually be seen as a harmonic oscillation. 
+\par The harmonic oscillation can be separated into four parts. Suppose the maximum magnitude is x. Then the particle travels from x to 0, then from 0 to -x, then from -x to 0 and then from 0 to x and that completes a period. The time taken from x to , 0 to -x, -x to 0 and 0 to x is the same. So for harmonic oscillation, we can get investigate$ \frac{1}{4}T $to find out the whole period.
+\par Since the mathematical pendulum can be seen as a harmonic oscillation. To get the period T for a mathematical pendulum, we just need to analyze $\frac{1}{4}T $
+\begin{equation*}
+ \begin{aligned}
+ \int_0^{\frac{T}{4}} dt & = \int_0^{\theta_0} \sqrt{\frac{l}{2g}} \frac{d \theta} {\sqrt{\cos\theta - \cos \theta_0}} \\
+                                       & =\sqrt{\frac{l}{2g}} \int_0^{\theta_0} \frac{d \theta} {\sqrt{\cos\theta - \cos \theta_0}} 
+ \end{aligned}
+\end{equation*}
+	\par Thus for the whole period we get 
+\begin{equation*}
+ \begin{aligned}
+ \int_0^{T} dt & = 4\sqrt{\frac{l}{2g}} \int_0^{\theta_0}\frac{d \theta} {\sqrt{\cos\theta - \cos \theta_0}} 
+ \end{aligned}
+\end{equation*}
+	\par Thus we can get that 
+\begin{equation}
+ T = 4\sqrt{\frac{l}{2g}} \int_0^{\theta_0}\frac{d \theta} {\sqrt{\cos\theta - \cos \theta_0}} 
+\end{equation}
+\par However, just using equation(2)  you cannot get the proper period for the mathematical period. The reason is that at $\theta = \theta_0$, there is a vertical asymptote that makes the integral incorrect. For more details, please refer to reference [9]. \\
+We use $ \sin \phi = \frac{ \sin \frac{\theta}{2}}{ \sin \frac{\theta_0}{2} } $ to do the substitution
+\begin{equation*}
+ \begin{aligned}
+ T & = 4\sqrt{\frac{l}{2g}} \int_0^{\theta_0}\frac{d \theta} {\sqrt{1- 2 \sin^2 \frac{\theta}{2} -1 +2 \sin^2 \frac{\theta_0}{2}}}\\
+    & =  4\sqrt{\frac{l}{g}} \int_0^{\theta_0}\frac{d \theta} {\sqrt{\sin^2 \frac{\theta_0}{2} - \sin^2 \frac{\theta}{2}}}\\
+    & = 4\sqrt{\frac{l}{g}} \int_0^{\frac{\pi}{2}} \frac{d \phi}{\sqrt{1 - \sin^2 \frac{\theta_0}{2} \sin^2 \phi}}
+ \end{aligned}
+\end{equation*}
+\subsection{Approximation of the Period Formula}
+\par Let $ x= \sin^2 \frac{\theta_0}{2} \sin^2 \phi $ and then $|x| < 1$, we can expand T.\\
+\par  Use Taylor series at the point $x=0$ to approximate the period.\\
+	\par We know the Taylor Series at the point $x=0$ is 
+\begin{equation*}
+ f(x) = f(0)+f'(0)x+\frac{f''(0)}{2!}x^2 +...+\frac{f^{(n)}(0)}{n!}x^n + \frac{f^{(n+1)}(\theta x)}{(n+1)!}x^ {(n+1)}
+\end{equation*}
+	\par We can that at the point $x=0$, we have the approximation for $ \frac{1}{\sqrt{1-x}} $ that is 
+\begin{equation*}
+ \frac{1}{\sqrt{1-x}} = 1+\frac{1}{2}x +\frac{1}{2} \times \frac{3}{4}x^2 +... + \frac{1\times 3 \times 5 \times ... \times (2n-1)}{2 \times 4 \times 6 \times ... \times (2n)} x^n +...
+\end{equation*}
+	\par  Set$  \theta_0 \ll 5^\circ $, Thus, $\sin^2 {\theta_0}^{2} = 0.002 \ll 1$ \\ 
+	\par We get the approximated equation 
+\begin{equation*}
+ \begin{aligned}
+ T & =  4\sqrt{\frac{l}{g}} \int_0^{\frac{\pi}{2}} d\phi (1+\frac{1}{2}\sin^2 \frac{\theta_0}{2} \sin^2 \phi) \\
+    & =   4\sqrt{\frac{l}{g}} \int_0^{\frac{\pi}{2}} d\phi  + 4\sqrt{\frac{l}{g}} \int_0^{\frac{\pi}{2}} \frac{1}{2}\sin^2 \frac{\theta_0}{2} \sin^2 \phi \\
+    & =  4\sqrt{\frac{l}{g}} \frac{\pi}{2} + 4\sqrt{\frac{l}{g}} \frac{\pi}{8} \sin^2 \frac{\theta_0}{2} \\
+    & = 2\pi \sqrt{\frac{l}{g}} (1 + \frac{1}{4}\sin^2 \frac{\theta_0}{2} )
+ \end{aligned}
+\end{equation*}
+	\par Since $\sin \frac{\theta_0}{2} \approx  \frac{\theta_0}{2}$ when $  \theta_0 \ll 5^\circ $ we get 
+\begin{equation*}
+ \begin{aligned}
+ T & =   2\pi \sqrt{\frac{l}{g}} (1+\frac{{\theta_0} ^2}{16})
+    & =  2\pi \sqrt{\frac{l}{g}}
+  \end{aligned}
+\end{equation*}
+\subsection{The Curve for Tautochone}
+\par As is mentioned above,the famous mathematical tautochrone problem asks whether there exists a path along which the 
+period of such a pendulum would not depend on $\theta_0$. This problem was 
+solved by Christiaan Huygens in 1659. The path must be the form like this:
+\begin{equation*}
+\frac{d^{2}s}{dt^{2}}=  -ks
+\end{equation*}
+where s is the path length and t is the time. Also, we consider the condition for $k>0$.
+\par In order to prove this, we should prove the uniqueness of the solution.
+\par Firstly, we prove the simple harmonic oscillations can satisfy this equation: Notice that the solution for a simple harmonic oscillation is:  $s=A \cos(\omega t)$. $A$ is the amplitude. By setting $k = \omega^{2}$, we can deduce the equation: 
+\begin{equation*}
+\frac{d^{2}s}{dt^{2}}=  -ks
+\end{equation*}
+\par It means that any tautochone curve are a kind of simple harmonic oscillations.
+\par Secondly, we need to prove there is no other kinds of solutions(except sine function, which is the same as cosine function) for this derivative equation. It is a second order linear differential equation with constant coefficients. We turn to its characteristic equation:  
+\begin{equation*}
+y^{2} + ky =0
+\end{equation*}
+,where y is the root of the characteristic equation. The solution are conjugate imaginary roots: $y_{1,2} = \pm\sqrt{k}i$. So that the general solution for the original equation can be written as: $s = e^{0s}(\cos(\sqrt{k}s) + \sin(\sqrt{k}s))= \sqrt{2}\cos(\sqrt{k}s - \pi/2 )$.$^{[11]}$
+\par From what we calculated above, we can discover that the tautochone curve are not determined by the inital condition and it must be a path along which
+ \begin{equation*}
+\frac{d^{2}s}{dt^{2}}=  -ks
+\end{equation*}
+\par Also, only when the maximum angle is rather small can the single pendulum  approximation fits the tauchochone period. Otherwise, the two models are not closed to each other. 
+\subsection{The Equation of the Curve}
+From the previous researches, we've already known that the tautochrone must follow the path
+    \begin{equation*}
+	\frac{d^{2}s}{dt^{2}}=-ks\label{con:sss}
+	\end{equation*}
+\par Now, we want to derive a curve from it and then parametrize it. First, let's explore what \emph{k} and \emph{s} represent. Assume the angle between the string and the vertical direction is $\theta$, draw the Free Body Diagram of the system.
+\newline
+\centerline{\includegraphics[scale=0.6]{ss.png}}
+\newline
+\centerline{Figure 8. Free Body Diagram of the system}
+\newline
+Along the direction of the string, we can get the centripetal force
+    $$
+    F_{cen}=T-mg\cos\theta
+    $$
+Along the direction of orthogonal to the string, the restoring force
+    \begin{equation*}
+    F_{res}=-mg\sin\theta\label{1}
+    \end{equation*}
+Combining the two equation above, we get that
+    \begin{equation*}
+    -ks=\frac{d^{2}s}{dt^{2}}=a=\frac{F_{res}}{m}=-mg\sin\theta\label{2}
+    \end{equation*}
+Therefore, we get $ks=g\sin\theta$. Obviously, $s$ is a function with respect to $\theta$. Let $f(\theta)$ represent $s$, we can get
+    \begin{equation*}
+    f(\theta)=\frac{g\sin\theta}{k}\label{3}
+    \end{equation*}
+Differentiating the equation above with respect to time $t$, we get the velocity of the particle
+    \begin{equation*}
+    v(t)=\frac{df}{dt}=\frac{df}{d\theta}\cdot\frac{d\theta}{dt}=\frac{g\cos\theta}{k}\cdot\frac{d\theta}{dt}\label{vt}
+    \end{equation*}
+Now, decompose $v$ into the $x$ and $y$ direction, we get that
+    $$
+    v_x(t)=v(t)\cos{t}=\frac{g\cos^{2}\theta}{k}\cdot\frac{d\theta}{dt}
+    $$
+    $$
+    v_y(t)=v(t)\cos{t}=\frac{g\cos\theta \sin\theta}{k}\cdot\frac{d\theta}{dt}
+    $$
+Furthermore, $$v_x(t)=\frac{dx}{dt}$$ $$v_y(t)=\frac{dy}{dt}$$
+As a result, $$\frac{dx}{dt}=\frac{g\cos^{2}\theta}{k}\cdot\frac{d\theta}{dt}$$
+$$\frac{dy}{dt}=\frac{g\cos\theta \sin\theta}{k}\cdot\frac{d\theta}{dt}$$
+And we get
+    \begin{equation}
+    dx=\frac{g\cos^{2}\theta}{k}\cdot d\theta\label{xt}
+    \end{equation}
+    \begin{equation}
+    dy=\frac{g\cos\theta sin\theta}{k}\cdot d\theta\label{yt}
+    \end{equation}
+Now, we want to integral Eq. (\ref{xt}) and Eq. ({\ref{yt}}) on both sides. But first, we need to set the initial conditions for each variables. When $t=0$, assume that the particle is at the lowest point of the trajectory. Therefore, we get $\theta=0$, $x=0$, $y=-\frac{g}{2k}$ when $t=0$. Now, we can integral Eq. (\ref{xt}) on both sides
+
+    $$\int_{0}^{x(\theta)}\,dx=\frac{g}{k}\int_{0}^{\theta}\cos^{2}\theta\,d\theta$$
+    $$x(\theta)=\frac{g}{k}\int_{0}^{\theta}\frac{\cos2\theta+1}{2}\,d\theta$$
+Let $a=2\theta$, than $\frac{da}{d\theta}=2$. So
+
+ $$\int_{0}^{\theta}\frac{\cos2 \theta+1}{2}\,d\theta=\int_{0}^{2\theta}\frac{\cos a+1}{2}\cdot\frac{1}{2}\,da$$
+    $$=\frac{1}{4}(\sin a+a)|_{0}^{2\theta}$$
+    $$=\frac{1}{4}(\sin 2\theta+2\theta)$$
+Thus,
+    \begin{equation*}
+    x(\theta)=\frac{g}{4k} (\sin 2 \theta+2\theta)
+    \end{equation*}
+Using the same method, let's integral Eq. (\ref{yt}) on both sides
+    $$\int_{0}^{y(\theta)}\,dy=\frac{g}{k}\int_{0}^{\theta}\cos\theta \sin\theta\,d\theta$$
+    $$y|_{-\frac{g}{2k}}^{y(\theta)}=-\frac{1}{4}\cos 2\theta|_{0}^{\theta}$$
+So,
+    \begin{equation*}
+    y(\theta)=-\frac{g}{4k}(1+\cos2\theta)
+    \end{equation*}
+As a result, we've  deduced the curve satisfying $\frac{d^{2}s}{dt^{2}}=-ks$. And the equation is
+    \begin{equation*}
+    r(\theta)=(x(\theta),y(\theta))=\frac{g}{4k}(\sin2\theta+2\theta, -1-\cos2\theta)
+    \end{equation*}
+    
+ \subsection{Construction of a Tautochrounous Pendulum}
+	Before constructing Huygens’s tautochrounous pendulum, we first explore some important properties of the cycloid. 
+	\par Specifically, since the bob cannot move along the cycloid without any external intervention, we need to control the effective length of the string of the pendulum, such as adding two metal plates as follows.
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.4]{P1Plate.jpg}
+\caption{Pendulum constrained by metal plates [10].}
+\label{g1}
+\end{figure}
+	\par Since the string of the pendulum is always perpendicular to the trajectory of its motion, we need to the point that the string just leaves the metal plate, which acts as the center of a circle that the bob moves along. When the bob oscillates along the cycloid, such points form a curve called "evolute", which describes the shape of the metal plates.
+	\par Now our first problem is to find the evolute $E(\theta)$ of a cycloid. According to the definition, the evolute of a cycloid is "the locus of the centers of the osculating circles for the graph of the cycloid"[10].
+	\par The parametric equation of a cycloid can be given by,
+	$$\phi(\theta)=\frac{g}{4k}(2\theta+\sin2\theta,-(1+\cos2\theta)),-\pi\le2\theta\le\pi$$
+	where $x(\theta)=\frac{g}{4k}(2\theta+\sin2\theta)$ and $y(\theta)=-\frac{g}{4k}(1+\cos2\theta)$.
+	\par To find the evolute of the cycloid, we need to determine the radius of the "osculating circle", i.e., the radius of curvature $R$ of the aforementioned parametric curve.
+	\par The curvature $\kappa$ is given by,
+	$$\kappa\circ\gamma(\theta)=\frac{||(T\circ\gamma)'(\theta)||}{||\gamma'(\theta)||}=\frac{||\frac{(-\sin2\theta,1+\cos2\theta)}{\sqrt{2+2\cos\theta}}||}{\frac{g}{4k}2\sqrt{2+2\cos2\theta}}=\frac{1}{\frac{g}{4k}2\sqrt{2+2\cos2\theta}}$$
+	\par The radius of of curvature is then given by,
+	$$R(\theta)=\frac{1}{\kappa\circ\gamma(\theta)}=\frac{g}{4k}2\sqrt{2+2\cos2\theta}$$
+	\par Next, if we observe the following graph describing the osculating circle of a certain curve, where $T$ is the unit tangent vector at one point and $\beta$ is the angle between the unit tangent vector and x-axis, we will get the following equation to determine the center of the osculating circle,
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.3]{P1Curvature.jpg}
+\caption{Osculating circle of a certain point on a curve (Drawing by hand).}
+\label{g2}
+\end{figure}
+	$$x_0(\theta)=x(\theta)+R(\theta)\cos(\beta+\frac{\pi}{2})=x(\theta)-R(\theta)\sin\beta$$
+	$$y_0(\theta)=y(\theta)+R(\theta)\sin(\beta+\frac{\pi}{2})=y(\theta)+R(\theta)\cos\beta$$
+	where $\sin\beta=<T\circ\gamma(\theta),e_2>=\frac{\sin2\theta}{\sqrt{2+2\cos2\theta}}$ and $\cos\beta=<T\circ\gamma(2\theta),e_1>=\frac{1+\cos2\theta}{\sqrt{2+2\cos2\theta}}$.
+	\par Since $R(\theta)=\frac{g}{4k}2\sqrt{2+2\cos2\theta}$, we get
+	$$x_0(\theta)=\frac{g}{4k}(2\theta+\sin2\theta)-\frac{g}{4k}2\sqrt{2+2\cos2\theta}\frac{\sin2\theta}{\sqrt{2+2\cos2\theta}}=\frac{g}{4k}(2\theta-\sin2\theta)$$
+	$$y_0(\theta)=-\frac{g}{4k}(1+\cos2\theta)+\frac{g}{4k}2\sqrt{2+2\cos2\theta}\frac{1+\cos2\theta}{\sqrt{2+2\cos2\theta}}=\frac{g}{4k}(1+\cos2\theta)$$
+	\par Therefore, the evolute of the cycloid can be expressed parametrically as $E(\theta)=\frac{g}{4k}(2\theta-\sin2\theta,1+\cos2\theta)$. We can clearly see that $E(\theta)$ is also a cycloid. Moreover, since $E(\theta)=\phi(\theta-\frac{\pi}{2})+(\pi,2)$, the graph of $E(\theta)$ is congruent to the graph of $\phi(\theta)$, and it can be obtained by moving the graph of $\phi(\theta)$ by $\frac{\pi}{2}$ in the $x$ direction and 2 in the $y$ direction.
+	
+		From the calculation done above, we can see that the metal plates are cycloid themselves. However, this doesn't prove that the pendulum will follow the path of the curve $r(\theta)$. If we can find the parametric equation of the trajectory of the pendulum and it is just the same with that of the curve $r(\theta)$, then our assumption is verified.
+
+	We already know the shape of the metal plates $E(\theta)=\frac{g}{4k}(2\theta -\sin 2\theta ,1+\cos 2\theta )$. Suppose that the length of the pendulum thread is constant, and $2\theta = \pi$ is the starting point. 
+
+	Then we can calculate the total length of the pendulum thread, which is
+	\begin{equation*}
+		\begin{aligned}
+		s_0 &= s(\pi/2) \\
+			&= \int_0^{\pi/2} |E'(\theta)| \ d\theta\\
+			&= \int_0^{\pi/2} \frac{g}{4k}\sqrt{(2-2\cos 2\theta)^2+ (-2\sin 2\theta)^2} \ d\theta\\
+			&= \frac{g}{4k} \int_0^{\pi/2} \sqrt{8-8\cos 2\theta}\ d\theta\\
+			&= \frac{g}{4k} \int_0^{\pi/2} |4\sin\theta|\ d\theta,
+		\end{aligned}
+	\end{equation*}
+	where $s(\theta)$ indicates the length of the thread along the metal plates.
+
+	Since $\theta \in [0, \pi/2]$, we know that the value of $sin\theta > 0$, and that's to say,
+	\begin{equation*}
+		\begin{aligned}
+		s_0 &= \frac{g}{4k} \int_0^{\pi/2} 4\sin\theta \ d\theta\\
+			&= \frac{g}{4k} (-4\cos\theta) \ |_0^{\pi/2}\\
+			&= \frac{g}{k}
+		\end{aligned}
+	\end{equation*}
+
+	Next, we can find the length of the thread off the metal plates $S(\theta)$.
+	\begin{equation*}
+		\begin{aligned}
+		S(\theta) &= s_0-s(\theta)\\
+				  &= \frac{g}{k} - \frac{g}{4k} \int_0^{\theta}4 \sin\theta \ d\theta\\
+				  &= \frac{g}{k} - \frac{g}{k} (-\cos\theta)\ |_0^{\theta} \\
+				  &= \frac{g}{k} \cos \theta
+		\end{aligned}
+	\end{equation*}
+
+	By adding the vector $E(\theta)$ (indicating the postion where the thread starts to leave the metal plates) with the vector $T(\theta)\cdot S(\theta)$ (indicating the unit tangent vector at $\theta$ times the length of pendulum that is off the plates), we can find the position of the pendulum bob $r_{new}(\theta)$.
+
+	The unit tangent vector $T(\theta)$ can be found by
+	\begin{equation*}
+		\begin{aligned}
+		T(\theta) &= \frac{E'(\theta)}{|E'(\theta)|} \\
+				  &= \frac{1}{4\sin\theta} (2-2\cos 2\theta ,-2\sin 2\theta) \\
+				  &= (\sin\theta, -\cos\theta).
+		\end{aligned}
+	\end{equation*}
+
+	Finally, we can find the trajectory of the pendulum bob
+	\begin{equation*}
+		\begin{aligned}
+		r_{new}(\theta) &= E(\theta) + T(\theta) \cdot S(\theta) \\
+				  &= \frac{g}{4k}(2\theta -\sin 2\theta ,1+\cos 2\theta ) + (\sin\theta, -\cos\theta) \cdot \frac{g}{k} \cos \theta \\
+				  &= \frac{g}{4k}(2\theta,0)+\frac{g}{4k}(-2\sin\theta \cos\theta,2\cos^2\theta)+\frac{g}{k}(\sin\theta \cos\theta,-\cos^2\theta) \\
+				  &= \frac{g}{4k}(2\theta,0)+\frac{g}{4k}(2\sin\theta \cos\theta,-2\cos^2\theta) \\
+				  &= \frac{g}{4k}(2\theta,0)+\frac{g}{4k}(\sin2\theta,-1-\cos 2\theta)\\
+				  &= \frac{g}{4k}(2\theta+\sin2\theta,-1-\cos2\theta)
+		\end{aligned}
+	\end{equation*}
+
+	We find that this is exactly the equation of the initial cycloid 
+	\begin{equation*}
+		\begin{aligned}
+			r(\theta)=\frac{g}{4k}(2\theta+\sin2\theta,-1-\cos2\theta).
+		\end{aligned}
+	\end{equation*}
+
+	Thus we verify that the trajectory of the pendulum bob is the curve we've found before, and combine $r(\theta)$ with its evolute $E(\theta)$, we can deduce that the pendulum has a constant period.
+	
+ \begin{figure}[H]
+  \centering
+  \includegraphics[width=0.5\textwidth]{pro_1}
+  \caption{pendulum cycloid[11]}
+\end{figure}
+\section{Demonstration with Algodoo}
+	Algodoo is a free 2D physics simulation software developed by Algoryx Simulation AB. We can design interactive scenes and do interesting physical experiment in Algodoo.
+	\par In this project, we use Algodoo to simulate both simple pendulum and Huygens’s tautochrounous pendulum. We construct two pendulums, but the second one is constrained by two metal plates with the shape of cycloid. The two pendulums we draw in the software are shown below.
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.4]{P1P0.png}
+\caption{Simple pendulum \& tautochrounous pendulum in Algodoo.}
+\label{g0}
+\end{figure}
+	\par Due to the limitation of precision of the simulation software, the experiment is not under ideal circumstance, and some parameters don't keep the same in the two pendulums. However, we believe it won't affect the experiment results significantly.
+	\par We use the plot function provided in Algodoo to draw $v-t$ graphs of the bob.
+	\par For the simple pendulum, as we can see in the following two figures, when the amplitude is not large, the half-period is around 2 s. However, if we increase the amplitude, the half-period is around 2.2 s.
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.4]{P1P3.jpg}
+\caption{Simple pendulum with small amplitude.}
+\label{g3}
+\end{figure}
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.4]{P1P4.jpg}
+\caption{Simple pendulum with large amplitude.}
+\label{g4}
+\end{figure}
+
+	\par For the tautochrounous pendulum, regardless of how we change the amplitude, the half-period is always around 2 s, which confirms our theory.
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.4]{P1P1.jpg}
+\caption{Tautochrounous pendulum with small amplitude (the first part of the graph should be ignored).}
+\label{g5}
+\end{figure}
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.4]{P1P2.jpg}
+\caption{Tautochrounous pendulum with large amplitude.}
+\label{g6}
+\end{figure}
+	\par The source file of Algodoo has been uploaded onto \url{https://github.com/shili2017/VV285-Project}. Readers can download Algodoo freely on \url{http://www.algodoo.com/} to run the demonstration files.
+\newpage 
+
+	\section{Conclusion}
+ \par In this project, we investigated on mathematical pendulum. We see that the energy of a mathematical pendulum is given as 
+ \begin{equation*}
+E (\theta, \dot{\theta}) =  \frac{1}{2} m l^2 \dot{\theta}^2 + mgl(1- \cos\theta)
+\end{equation*}
+And it satisfies the equation that 
+\begin{equation*}
+\ddot{\theta}+\frac{g}{l}\sin(\theta) = 0
+\end{equation*}
+We can derive the period of the pendulum as 
+\begin{equation*}
+ \begin{aligned}
+ T   & = 4\sqrt{\frac{l}{g}} \int_0^{\frac{\pi}{2}} \frac{d \phi}{\sqrt{1 - \sin^2 \frac{\theta_0}{2} \sin^2 \phi}}
+ \end{aligned}
+\end{equation*}
+The period can be approximated as 
+\begin{equation*}
+ \begin{aligned}
+ T & =   2\pi \sqrt{\frac{l}{g}} (1+\frac{{\theta_0} ^2}{16})
+    & =  2\pi \sqrt{\frac{l}{g}}
+  \end{aligned}
+\end{equation*}
+Next we investigate the famous mathematical tautochrone problem asks whether there exists a path along which the period of such a pendulum would not depend on $\theta_0$.
+We found that for the mathematical pendulum, $\frac{d^2s}{dt^2} = -ks$ holds. 
+The curve can be parametrized as 
+  \begin{equation*}
+    r(\theta)=(x(\theta),y(\theta))=\frac{g}{4k}(\sin 2\theta+2\theta, -1-\cos 2\theta)
+    \end{equation*}
+We can actually construct a pendulum whose period is constant under certain condition by placing some metal plates that can constrain the motion of the pendulum in the cycloid. see Figure 17.
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.5\textwidth]{pro_4}
+  \caption{the metal plate and the constant period [12]}
+\end{figure}
+\newpage
+
+\begin{thebibliography}{5} 
+\bibitem{bibitem1}Pendulum. Miriam Webster's Collegiate Encyclopedia. Miriam Webster. 2000. p. 1241. ISBN 0-87779-017-5. 
+\bibitem{bibitem2}Marrison, Warren (1948). ``The Evolution of the Quartz Crystal Clock". Bell System Technical Journal. 27: 510每588. doi:10.1002/j.1538-7305.1948.tb01343.x. Archived from the original on 2011-07-17. 
+\bibitem{bibitem3}Weisstein, E. W., ``Evolute." From MathWorld--A Wolfram Web Resource. http://mathworld.wolfram.com/Evolute.html
+\bibitem{bibitem4}A simple mathematical pendulum: https://en.wikipedia.org/wiki\_Pendulum
+\bibitem{bibitem5}https://en.wikipedia.org/wiki/Christiaan Huygens
+\bibitem{bibitem6}https://cn.depositphotos.com/10997109/stock-illustration-tautochrone-curve-vintage-engraving.html.
+\bibitem{bibitem7}Structure-preserving properties of Störmer-Verlet scheme for mathematical pendulum.  http://www.amm.shu.edu.cn/fileup/HTML/20170903.htm.
+\bibitem{bibitem8}https://encyclopedia2.thefreedictionary.com/physical+pendulum.
+\bibitem{bibitem9}L.Yongfeng. The period formula for mathematical pendulum in large amplitudes. Science and Technology Consulting Herald. 2007 No.28.
+\bibitem{bibitem10}R. Knoebel, A. Laubenbacher, R. Lodder, and D. Pengelley. Mathematical Masterpieces: Further Chronicles by the Explorers. Undergraduate Texts in Mathematics. Springer, 2007. 
+\bibitem{bibitem11} Jeff. B. and Satha P. The cycloidal pendulum. The American mathematical monthly. Vol.109. No.5. May. 2002.
+\bibitem{bibitem12} https://physics.stackexchange.com/questions/144372/how-to-determine-radius-of-curvature-of-cycloid-using-centripetal-acceleration
+\end{thebibliography}
+
+\end{document}
